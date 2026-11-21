@@ -58,7 +58,13 @@ export default function MenuSection() {
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header with Editorial Character */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8"
+        >
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-coffee-900 border border-brass-500/40 text-brass-400 text-xs tracking-wider uppercase font-medium mb-4">
               <Sparkles className="w-3.5 h-3.5" />
@@ -83,10 +89,16 @@ export default function MenuSection() {
               className="w-full pl-10 pr-4 py-2.5 bg-coffee-900/80 border border-coffee-700/80 rounded-full text-xs sm:text-sm text-cream-100 placeholder-cream-500 focus:outline-none focus:border-brass-400 transition-colors backdrop-blur-sm"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* Filter Navigation Tabs */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none"
+        >
           {CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat.id;
             return (
@@ -110,7 +122,7 @@ export default function MenuSection() {
               </button>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Asymmetrical Bento Grid */}
         <motion.div
@@ -137,15 +149,18 @@ export default function MenuSection() {
                 <motion.div
                   key={item.id}
                   layout
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, y: 55, scale: 0.94 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.15, margin: "0px 0px -40px 0px" }}
                   transition={{
-                    duration: 0.45,
-                    delay: Math.min(index * 0.06, 0.35),
+                    duration: 0.7,
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: (index % 3) * 0.1,
                   }}
+                  whileHover={{ y: -8, scale: 1.015, transition: { duration: 0.28, ease: "easeOut" } }}
+                  exit={{ opacity: 0, scale: 0.95 }}
                   onClick={() => setActiveItem(item)}
-                  className={`group relative rounded-3xl overflow-hidden bg-coffee-900/70 border border-coffee-800 hover:border-brass-500/60 transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_50px_rgba(212,146,56,0.15)] flex flex-col justify-between cursor-pointer ${spanClasses}`}
+                  className={`group relative rounded-3xl overflow-hidden bg-coffee-900/70 border border-coffee-800 hover:border-brass-500/60 transition-colors duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_50px_rgba(212,146,56,0.18)] flex flex-col justify-between cursor-pointer ${spanClasses}`}
                 >
                   {/* HERO CARD VARIATION */}
                   {isHero && (

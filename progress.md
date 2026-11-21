@@ -69,3 +69,9 @@
   - Título: *"Ao cruzar o portal, o tempo desacelera."*
   - Descritivo: *"Onde o aroma do grão fresco encontra a luz âmbar acolhedora, mesas de madeira nobre e a calma de uma segunda casa."*
 - Sincronização e transição suave validadas no navegador com 100% de precisão visual.
+
+### [2026-11-20 22:04] - Publicação do Repositório no GitHub
+- Inicializado repositório Git local.
+- Configurado remote `origin`: `https://github.com/RaphaCalixto/Cafeteria.git`.
+- Criado `README.md` completo e detalhado.
+- Realizado commit raiz e push com sucesso para o branch `main`.

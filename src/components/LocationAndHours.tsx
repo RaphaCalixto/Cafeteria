@@ -1,13 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import { Clock, MapPin, Phone, MessageSquare, Compass, Send, Check } from "lucide-react";
+import { motion } from "framer-motion";
+import { Clock, MapPin, MessageSquare, Compass, Check } from "lucide-react";
 
 export default function LocationAndHours() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyAddress = () => {
-    navigator.clipboard.writeText("Beco das Hortênsias, 142 - Fundos do Jardim Secreto, São Paulo - SP");
+    navigator.clipboard.writeText(
+      "Beco das Hortênsias, 142 - Fundos do Jardim Secreto, São Paulo - SP"
+    );
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
@@ -20,7 +23,13 @@ export default function LocationAndHours() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left Column: Hours & Contact */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-5 flex flex-col justify-between"
+          >
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-coffee-900 border border-brass-500/40 text-brass-400 text-xs tracking-wider uppercase font-medium mb-4">
                 <Clock className="w-3.5 h-3.5" />
@@ -85,10 +94,16 @@ export default function LocationAndHours() {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Stylized Map & Arrival Guide */}
-          <div className="lg:col-span-7">
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.25 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+          >
             <div className="relative rounded-3xl overflow-hidden bg-coffee-900 border border-coffee-800 p-8 shadow-2xl flex flex-col justify-between min-h-[460px]">
               {/* Map Graphic / Background Texture */}
               <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#d49238_1px,transparent_1px)] [background-size:16px_16px]" />
@@ -152,7 +167,7 @@ export default function LocationAndHours() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

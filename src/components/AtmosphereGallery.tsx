@@ -17,7 +17,13 @@ export default function AtmosphereGallery() {
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-botanical-900/60 border border-botanical-600/40 text-botanical-300 text-xs tracking-wider uppercase font-medium mb-3">
             <Camera className="w-3.5 h-3.5" />
             <span>A Atmosfera do Beco</span>
@@ -28,12 +34,17 @@ export default function AtmosphereGallery() {
           <p className="text-cream-400 text-sm sm:text-base font-light">
             Entre a luz suave que atravessa as folhas e o cheiro da torra diária, cada canto foi pensado para acolher suas melhores conversas ou seu silêncio favorito.
           </p>
-        </div>
+        </motion.div>
 
         {/* Editorial Masonry/Staggered Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
           {/* Photo 1: Landscape Large */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.25 } }}
             onClick={() => setSelectedPhoto(GALLERY_ITEMS[0])}
             className="md:col-span-8 group relative rounded-3xl overflow-hidden min-h-[380px] sm:min-h-[460px] bg-coffee-900 border border-coffee-800 cursor-pointer shadow-xl"
           >
@@ -58,10 +69,15 @@ export default function AtmosphereGallery() {
                 <Maximize2 className="w-4 h-4" />
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Photo 2: Portrait Tall */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.25 } }}
             onClick={() => setSelectedPhoto(GALLERY_ITEMS[1])}
             className="md:col-span-4 group relative rounded-3xl overflow-hidden min-h-[380px] sm:min-h-[460px] bg-coffee-900 border border-coffee-800 cursor-pointer shadow-xl"
           >
@@ -81,10 +97,15 @@ export default function AtmosphereGallery() {
                 {GALLERY_ITEMS[1].title}
               </h3>
             </div>
-          </div>
+          </motion.div>
 
           {/* Photo 3: Square */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.25 } }}
             onClick={() => setSelectedPhoto(GALLERY_ITEMS[2])}
             className="md:col-span-4 group relative rounded-3xl overflow-hidden min-h-[320px] bg-coffee-900 border border-coffee-800 cursor-pointer shadow-xl"
           >
@@ -104,10 +125,15 @@ export default function AtmosphereGallery() {
                 {GALLERY_ITEMS[2].title}
               </h3>
             </div>
-          </div>
+          </motion.div>
 
           {/* Photo 4: Portrait */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.25 } }}
             onClick={() => setSelectedPhoto(GALLERY_ITEMS[3])}
             className="md:col-span-4 group relative rounded-3xl overflow-hidden min-h-[320px] bg-coffee-900 border border-coffee-800 cursor-pointer shadow-xl"
           >
@@ -127,10 +153,15 @@ export default function AtmosphereGallery() {
                 {GALLERY_ITEMS[3].title}
               </h3>
             </div>
-          </div>
+          </motion.div>
 
           {/* Photo 5: Wide Landscape */}
-          <div
+          <motion.div
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -6, scale: 1.01, transition: { duration: 0.25 } }}
             onClick={() => setSelectedPhoto(GALLERY_ITEMS[4])}
             className="md:col-span-4 group relative rounded-3xl overflow-hidden min-h-[320px] bg-coffee-900 border border-coffee-800 cursor-pointer shadow-xl"
           >
@@ -150,7 +181,7 @@ export default function AtmosphereGallery() {
                 {GALLERY_ITEMS[4].title}
               </h3>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
